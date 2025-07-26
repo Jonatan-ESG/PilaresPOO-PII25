@@ -25,13 +25,34 @@ namespace PilaresPOO.Clases
 			if(montoDeposito > 0)
 			{
 				saldo += montoDeposito;
+				Console.WriteLine("Deposito realizado con éxito.");
 			}
+
+		}
+
+		public decimal Retirar(decimal montoRetiro, string usuario, string password) {
+			if (usuario != this.nombreUsuario || password != this.password)
+			{
+				Console.WriteLine("No fue posible autenticar al usuario.");
+				return 0;
+			}
+
+			if(this.saldo <= 0 || montoRetiro > saldo)
+			{
+				Console.WriteLine("El saldo de la cuenta no es suficiente para realizar la operación.");
+				return 0;
+			}
+				
+			saldo -= montoRetiro;
+			return saldo;
+
 
 		}
 
 		public decimal ObtenerSaldo(string usuario, string password) {
 			
 			if (usuario != this.nombreUsuario || password != this.password) {
+				Console.WriteLine("No fue posible autenticar al usuario.");
 				return 0;
 			}
 
