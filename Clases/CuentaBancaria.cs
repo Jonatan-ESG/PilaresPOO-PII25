@@ -18,7 +18,8 @@ namespace PilaresPOO.Clases
 			this.nombreUsuario = usuario;
 			this.password = password;
 			this.saldo = saldoInicial;
-		}
+			this.movimientos = new List<string>();
+	}
 
 		public void Depositar(decimal montoDeposito) { 
 
